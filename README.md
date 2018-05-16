@@ -1,4 +1,4 @@
-![Build status](https://ci.appveyor.com/api/projects/status/7ovwk5kt4hgdcxuc?svg=true)](https://ci.appveyor.com/project/nsdc92/chocolateytools)
+[![Build status](https://ci.appveyor.com/api/projects/status/7ovwk5kt4hgdcxuc?svg=true)](https://ci.appveyor.com/project/nsdc92/chocolateytools)
 
 
 # Read Me
