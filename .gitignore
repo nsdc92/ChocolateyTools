@@ -38,4 +38,4 @@ Thumbs.db
 
 # GitHub #
 ##########
-*.github
+/.github/ISSUE_TEMPLATE
