@@ -17,6 +17,8 @@ A PowerShell module to create and test Chocolatey packages.
 - Chocolatey
 - Powershell Core 6.0.2
 - VirtualBox
+- Pester
+- PSake
 
 ## Installation
 
