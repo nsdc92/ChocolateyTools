@@ -46,25 +46,3 @@ function New-ChocolateyPackage () {
     }
 
 }
-
-function Test-ChocolateyPackage () {
-
-    Param(
-        [Parameter(Mandatory=$true)]
-        [ValidatePattern("[a-z]")]
-        [String]
-        $PackagePath)
-
-    Process {
-        Set-Location -Path C:\Work\ACGit\chocolatey-test-environment\
-
-        vagrent.exe up
-
-        vagrant.exe sandbox on
-
-        vagrant.exe provision
-    }
-    
-}
-
-New-ChocolateyPackage

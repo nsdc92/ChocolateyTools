@@ -1,3 +1,5 @@
+![Build status](https://ci.appveyor.com/api/github/webhook?id=sk0yaapt50t50xgc)
+
 # Read Me
 
 A PowerShell module to create and test Chocolatey packages.
