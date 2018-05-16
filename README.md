@@ -1,4 +1,5 @@
-![Build status](https://ci.appveyor.com/api/projects/status/sk0yaapt50t50xgc/branch/master?svg=true)
+![Build status](https://ci.appveyor.com/api/projects/status/7ovwk5kt4hgdcxuc?svg=true)](https://ci.appveyor.com/project/nsdc92/chocolateytools)
+
 
 # Read Me
 
