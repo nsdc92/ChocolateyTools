@@ -195,7 +195,7 @@ Task Deploy -Depends Build {
     if(
         $ENV:BHBuildSystem -ne 'Unknown' -and
         $ENV:BHBranchName -eq "master" -and
-        $ENV:BHCommitMessage -match '!deploy'
+        $ENV:BHCommitMessage -match '!build'
     )
     {
         $Params = @{
