@@ -1,4 +1,4 @@
-![Build status](https://ci.appveyor.com/api/github/webhook?id=sk0yaapt50t50xgc)
+![Build status](https://ci.appveyor.com/api/projects/status/sk0yaapt50t50xgc/branch/master?svg=true)
 
 # Read Me
 
