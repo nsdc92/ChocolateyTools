@@ -1,7 +1,7 @@
 Write-Verbose "Importing Functions"
 
 # Import everything in these folders
-foreach($folder in @('public', 'classes'))
+foreach($folder in @('private', 'public', 'classes'))
 {
     
     $root = Join-Path -Path $PSScriptRoot -ChildPath $folder
