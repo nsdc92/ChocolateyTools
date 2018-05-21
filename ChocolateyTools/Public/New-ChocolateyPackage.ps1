@@ -113,6 +113,3 @@ function New-ChocolateyPackage (
         #Set-Location -Path C:\Work\ACGit\chocolatey-test-environment\
     }
 }
-
-
-New-ChocolateyPackage
