@@ -88,7 +88,7 @@ Task Deploy -Depends Build {
     if(
         $ENV:BHBuildSystem -ne 'Unknown' -and
         $ENV:BHBranchName -eq "master" -and
-        $ENV:BHCommitMessage -match '!build'
+        $ENV:BHCommitMessage -match '!deploy'
     )
     {
         $Params = @{
@@ -104,6 +104,6 @@ Task Deploy -Depends Build {
         "Skipping deployment: To deploy, ensure that...`n" +
         "`t* You are in a known build system (Current: $ENV:BHBuildSystem)`n" +
         "`t* You are committing to the master branch (Current: $ENV:BHBranchName) `n" +
-        "`t* Your commit message includes !build (Current: $ENV:BHCommitMessage)"
+        "`t* Your commit message includes !deploy (Current: $ENV:BHCommitMessage)"
     }
 }

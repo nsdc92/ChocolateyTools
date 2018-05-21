@@ -3,9 +3,7 @@ Deploy Module {
         FromSource $ENV:BHProjectName
         To PSGallery
         WithOptions @{
-            #ApiKey = 'gXD4c5l8xUJRlQt5oqbMauiSY6vSlAQ9y8hyR2FO10jTl+nwkAR/SEOLxxLPbN+o'
             ApiKey = "dac89b4c-a290-45aa-9cb1-7b16d3489505"
-            #ApiKey = $ENV:NugetApiKey
             }
         }
     }
