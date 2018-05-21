@@ -106,3 +106,4 @@ Task Deploy -Depends Build {
         "`t* You are committing to the master branch (Current: $ENV:BHBranchName) `n" +
         "`t* Your commit message includes !build (Current: $ENV:BHCommitMessage)"
     }
+}
