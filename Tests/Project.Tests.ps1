@@ -4,7 +4,7 @@ $moduleName = Split-Path $moduleRoot -Leaf
 
 Describe "General project validation: $moduleName" {
 
-    $scripts = Get-ChildItem $projectRoot -Include *.ps1,*.psm1,*.psd1 -Recurse -Exclude *chocolateyinstall.ps1
+    $scripts = Get-ChildItem $projectRoot -Include *.ps1,*.psm1,*.psd1 -Recurse -Exclude *chocolateyinstall.ps1,*ChocolateyAction.ps1
     # TestCases are splatted to the script so we need hashtables
     $testCase = $scripts | Foreach-Object{@{file=$_}}         
     It "Script <file> should be valid powershell" -TestCases $testCase {
