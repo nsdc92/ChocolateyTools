@@ -106,7 +106,7 @@ function New-ChocolateyPackage (
             silentargs=$SilentArgs `
             --acceptlicense --limitoutput --force 
 
-        #choco.exe pack $ChocoWorkingDir\$PackageName\$Name.nuspec
+        choco.exe pack $Name.nuspec
 
         #Copy-Item -Path $ChocoWorkingDir\$PackageName\$Name.nupkg -Destination C:\Work\ACGit\chocolatey-test-environment\packages\ -Recurse -Force
             
