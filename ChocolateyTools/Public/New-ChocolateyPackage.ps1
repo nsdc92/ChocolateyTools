@@ -99,7 +99,7 @@ function New-ChocolateyPackage (
 
         choco.exe new $Name `
             --template=$Template `
-            --version=$PVersion `
+            --version=$Version `
             --maintainer=$Maintainer `
             url64=$Path `
             installertype=$Type `
