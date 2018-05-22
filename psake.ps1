@@ -17,7 +17,7 @@ Properties {
         $Verbose = @{Verbose = $True}
     }
 }
-Task Default -Depends Deploy
+Task Default -Depends Test
 Task Init {
     $lines
     Set-Location $ProjectRoot
