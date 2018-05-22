@@ -24,7 +24,7 @@ GUID = 'e8ecbd16-b53a-4ee0-b530-5030f8db26fa'
 Author = 'Nhikitoa Soto Del Carpio'
 
 # Company or vendor of this module
-CompanyName = 'Test'
+CompanyName = 'None'
 
 # Copyright statement for this module
 Copyright = '(c) Nhikitoa Soto Del Carpio. All rights reserved.'

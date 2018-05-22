@@ -9,5 +9,5 @@ Import-Module Psake, PSDeploy, BuildHelpers, Pester
 
 Set-BuildEnvironment
 
-Invoke-psake -buildFile .\psake1.ps1 -taskList $Task -nologo
-exit ( [int]( -not $psake1.build_success ) )
+Invoke-psake -buildFile .\psake.ps1 -taskList $Task -nologo
+exit ( [int]( -not $psake.build_success ) )
