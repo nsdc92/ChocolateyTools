@@ -1,5 +1,3 @@
-# PSake makes variables declared here available in other scriptblocks
-# Init some things
 Properties {
     # Find the build folder based on build system
         $ProjectRoot = $ENV:BHProjectPath
@@ -81,8 +79,8 @@ Task Build -Depends Test {
     # Bump the module version if we didn't already
     Try
     {
-        $GalleryVersion = Get-NextPSGalleryVersion -Name $env:BHProjectName -ErrorAction Stop
-        $GithubVersion = Get-MetaData -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -ErrorAction Stop
+        [version]$GalleryVersion = Get-NextPSGalleryVersion -Name $env:BHProjectName -ErrorAction Stop
+        [version]$GithubVersion = Get-MetaData -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -ErrorAction Stop
         if($GalleryVersion -ge $GithubVersion) {
             Update-Metadata -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -Value $GalleryVersion -ErrorAction stop
         }
@@ -100,7 +98,7 @@ Task Deploy -Depends Build {
     if(
         $ENV:BHBuildSystem -ne 'Unknown' -and
         $ENV:BHBranchName -eq "master" -and
-        $ENV:BHCommitMessage -match '!deploy'
+        $ENV:BHCommitMessage -match '!build'
     )
     {
         $Params = @{
@@ -115,6 +113,6 @@ Task Deploy -Depends Build {
         "Skipping deployment: To deploy, ensure that...`n" +
         "`t* You are in a known build system (Current: $ENV:BHBuildSystem)`n" +
         "`t* You are committing to the master branch (Current: $ENV:BHBranchName) `n" +
-        "`t* Your commit message includes !deploy (Current: $ENV:BHCommitMessage)"
+        "`t* Your commit message includes !build (Current: $ENV:BHCommitMessage)"
     }
 }
