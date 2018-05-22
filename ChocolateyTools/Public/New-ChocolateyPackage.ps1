@@ -45,7 +45,9 @@ function New-ChocolateyPackage (
     [Parameter(Mandatory = $false)]
     [ValidatePattern("[a-z]")]
     [String]
-    $Maintainer = "Author") {
+    $Maintainer = "Author"
+    ) 
+{
     <#
 .Synopsis
     Create a chocolatey package
@@ -109,4 +111,5 @@ function New-ChocolateyPackage (
         cd $Name
 
         choco.exe pack $Name.nuspec
-    }
+}
+}
