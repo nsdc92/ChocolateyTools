@@ -113,7 +113,6 @@ function New-ChocolateyPackage (
             --template=$Template `
             --version=$Version `
             --maintainer=$Maintainer `
-            #url64=$Path `
             installertype=$Type `
             silentargs=$SilentArgs `
             --acceptlicense --limitoutput --force 
@@ -125,3 +124,5 @@ function New-ChocolateyPackage (
         choco.exe pack $Name.nuspec
 }
 }
+
+New-ChocolateyPackage

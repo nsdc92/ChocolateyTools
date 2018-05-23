@@ -4,7 +4,7 @@ $ErrorActionPreference = 'Stop'; # stop on all errors
 $packageName  = '[[PackageName]]'
 #$toolsDir     = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $toolsDir = (Split-Path -parent $MyInvocation.MyCommand.Definition)
-$fileLocation = Join-Path $toolsDir '[[PackageName]].[[InstallerType]]'
+$fileLocation = Join-Path $toolsDir '[[PackageName]][[InstallerType]]'
 
 $packageArgs = @{
   packageName   = '[[PackageName]]'
