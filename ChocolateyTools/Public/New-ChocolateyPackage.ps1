@@ -124,5 +124,3 @@ function New-ChocolateyPackage (
         choco.exe pack $Name.nuspec
 }
 }
-
-New-ChocolateyPackage
