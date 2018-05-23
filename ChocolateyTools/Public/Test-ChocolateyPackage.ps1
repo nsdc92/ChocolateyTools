@@ -26,17 +26,25 @@ function Test-ChocolateyPackage (
 ) 
 
 {
-    #Split-Path -Path $PSScriptRoot | Set-Variable -Name PSMRoot
-    #Copy-Item -Path $PSMRoot\private\DefaultTemplate -Destination $env:ChocolateyInstall\templates -Recurse -Force
-    #Set-Variable -Name Template -Value DefaultTemplate
-
-    $vagrant = vagrant.exe -v
-
-    if($vagrent -eq "Vagrant 2.*" ){
-        Write-Host "Hello"
+$vagrant = vagrant.exe -v
+If($vagrant -match "vagrant"){
     }
-    #else
+else {
+    Write-Error -Message "Could not verify Vagrant is installed. Exiting"; Exit
+}
+        
+Split-Path -Path $PSScriptRoot | Set-Variable -Name PSMRoot
+Set-Location "$PSMRoot\Private\chocolatey-test-enviornment"
 
+Copy-Item -Path $Path -Destination "$PSMRoot\Private\chocolatey-test-enviornment\packages"
+
+vagrant.exe up
+
+vagrant.exe sandbox on
+
+vagrant.exe provision
+
+vagrant.exe sandbox rollback
 }
 
 <#

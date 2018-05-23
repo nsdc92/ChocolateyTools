@@ -122,5 +122,7 @@ function New-ChocolateyPackage (
         Set-Location -Path $Name
 
         choco.exe pack $Name.nuspec
+
+        Set-Location -Path ..\
 }
 }
