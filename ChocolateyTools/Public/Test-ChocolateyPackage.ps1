@@ -18,7 +18,7 @@ function Test-ChocolateyPackage (
     ,
 
     [Parameter(Mandatory = $false, 
-    HelpMessage = "Available Test Boxes: WIN2012")
+    HelpMessage = "Available Test Boxes: WIN2012")]
     [ValidatePattern("[a-z]")]
     [String]
     $BoxType = "WIN2012"
@@ -35,10 +35,11 @@ function Test-ChocolateyPackage (
     if($vagrent -eq "Vagrant 2.*" ){
         Write-Host "Hello"
     }
-    else
+    #else
 
 }
 
+<#
 SO VERY IMPORTANT https://chocolatey.org/docs/how-to-recompile-packages
 
 Package the installer inside tools folder of nupkg after downlaoding nupkg
@@ -55,3 +56,4 @@ that way I wont need to unpack when it gets to Test-ChocolateyPackage, I just ha
 vagrant up and Test
 If it passes then using Publish-ChocolateyPackage it will be uploaded to a repo of the users choosing
 less then 100mb and we are still good
+#>

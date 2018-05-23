@@ -42,6 +42,13 @@ function New-ChocolateyPackage (
 
     ,
 
+    [Parameter(Mandatory = $false ,
+    HelpMessage = "Embedded or External Template. Defaults to Embedded.")]
+    [string]
+    $Template = "EmbeddedTemplate"
+
+    ,
+
     [Parameter(Mandatory = $false)]
     [ValidatePattern("[a-z]")]
     [String]
@@ -78,6 +85,11 @@ function New-ChocolateyPackage (
     Otherwise, you will be prompteed for the .exe or .mst silent arguments. (Which is when Test-ChocolateyPackage comes in handy
     because you don't want to be install and uninstalling software on your machine just to test)
     Automatic
+.Parameter Template
+    The template decides if the .msi, .exe or .mct will be stored within the .nupkg.
+    The Embedded Template stores it in the tools file along with the chocolateyinstall.ps1
+    The External Template expects the final location of the installer to be provided.
+    It is best to embbed, unless the installer is over 100MB.
 .Parameter Maintainer
     The creator/maintainer of the package. Set to "Author" if no value is provided
     Optional
@@ -94,21 +106,21 @@ function New-ChocolateyPackage (
         }
 
         Split-Path -Path $PSScriptRoot | Set-Variable -Name PSMRoot
-        Copy-Item -Path $PSMRoot\private\DefaultTemplate -Destination $env:ChocolateyInstall\templates -Recurse -Force
-        Set-Variable -Name Template -Value DefaultTemplate
+        Copy-Item -Path "$PSMRoot\private\*Template" -Destination $env:ChocolateyInstall\templates -Recurse -Force
 
-        #Set-Location
 
         choco.exe new $Name `
             --template=$Template `
             --version=$Version `
             --maintainer=$Maintainer `
-            url64=$Path `
+            #url64=$Path `
             installertype=$Type `
             silentargs=$SilentArgs `
             --acceptlicense --limitoutput --force 
 
-        cd $Name
+        Copy-Item -Path $Path -Destination ".\$Name\tools\"
+
+        Set-Location -Path $Name
 
         choco.exe pack $Name.nuspec
 }
