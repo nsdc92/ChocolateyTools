@@ -97,7 +97,7 @@ function New-ChocolateyPackage (
     Process {
         $Type = $Path.Extension   
         switch ($Type) {
-            #'.exe' {$SilentArgs = '/verysilent /norestart '}
+            '.exe' {$SilentArgs = '/verysilent /norestart '}
             '.msi' {$SilentArgs = '/qn /norestart '}
             Default {
                 Write-Error -Message "File extension is $Type . Please provide arguemnts"
@@ -105,8 +105,13 @@ function New-ChocolateyPackage (
             }
         }
 
+        #$type = REMOVE THE DOT before the extnetion. mayeb run another swithc to change it or actually just reset Set-Variable
+        #to remove the dot since all installer types will need to have it just be the extnetion name
+        #new-choco is passing a "." in the installer type. meaning that when test is called, it tries to use .exe when it cannot detect the type. 
+        #New-ChocolateyPackage Line 97-101 -> EmbeededTemplate/chocolateyinstall.ps1 Line 13
+
         Split-Path -Path $PSScriptRoot | Set-Variable -Name PSMRoot
-        Copy-Item -Path "$PSMRoot\private\*Template" -Destination $env:ChocolateyInstall\templates -Recurse -Force
+        Copy-Item -Path "$PSMRoot\private\*Template" -Destination $env:ChocolateyInstall\templates\ -Recurse -Force
 
 
         choco.exe new $Name `

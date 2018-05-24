@@ -125,7 +125,7 @@ Write-Output "Testing package if a line is uncommented."
 # - uncomment one of the two and edit it appropriately
 # - See the README for details
 #choco.exe install -fdvy INSERT_NAME --version INSERT_VERSION  --allow-downgrade
-#choco.exe install -fdvy Putty --allow-downgrade --source "'c:\\packages'"
+choco.exe install -fdvy Putty --allow-downgrade --source "'c:\\packages'"
 
 $exitCode = $LASTEXITCODE
 

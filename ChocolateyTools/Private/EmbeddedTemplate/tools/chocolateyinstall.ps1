@@ -5,6 +5,7 @@ $packageName  = '[[PackageName]]'
 #$toolsDir     = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $toolsDir = (Split-Path -parent $MyInvocation.MyCommand.Definition)
 $fileLocation = Join-Path $toolsDir '[[PackageName]][[InstallerType]]'
+#$installerytpe = 
 
 $packageArgs = @{
   packageName   = '[[PackageName]]'
